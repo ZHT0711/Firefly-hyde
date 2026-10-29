@@ -40,7 +40,8 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 		// 类型：song=单曲, playlist=歌单, album=专辑, search=搜索, artist=艺术家
 		type: "song",
 		// 歌单/专辑/单曲 ID 或搜索关键词
-		id: "2611226295",
+		// Linkin Park - One More Light（网易云 ID 460043753）
+		id: "460043753",
 		// 认证 token（可选）
 		auth: "",
 		// 备用 API 配置（当主 API 失败时使用）
