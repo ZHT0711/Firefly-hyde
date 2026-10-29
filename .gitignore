@@ -39,3 +39,6 @@ package/
 .obsidian/
 .edgeone/
 scripts/fill-descriptions.ts
+# obsidian 同步日志
+scripts/sync.log
+scripts/.obsidian-sync-manifest.json

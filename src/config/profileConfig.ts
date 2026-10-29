@@ -1,18 +1,14 @@
 import type { ProfileConfig } from "../types/profileConfig";
 
 export const profileConfig: ProfileConfig = {
-	// 头像
-	// 图片路径支持三种格式：
-	// 1. public 目录（以 "/" 开头，不优化）："/assets/images/avatar.webp"
-	// 2. src 目录（不以 "/" 开头，自动优化但会增加构建时间，推荐）："assets/images/avatar.webp"
-	// 3. 远程 URL："https://example.com/avatar.jpg"
-	avatar: "assets/images/avatar.avif",
+	// 头像（沿用旧博客的头像图床链接）
+	avatar: "https://bu.dusays.com/2026/03/24/69c1e38ac1846.jpg",
 
 	// 名字
-	name: "Hyde",
+	name: "SKOWOSY",
 
 	// 个人签名
-	bio: "Hello, I'm Hyde.",
+	bio: "A NORMAL CODING LOVER !",
 
 	// 链接配置
 	// 已经预装的图标集：fa7-brands，fa7-regular，fa7-solid，material-symbols，simple-icons
@@ -24,31 +20,19 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
-			url: "https://github.com/Seasir-Hyde/Firefly-hyde",
+			url: "https://github.com/ZHT0711",
 			showName: false,
 		},
 		{
 			name: "Email",
 			icon: "fa7-solid:envelope",
-			url: "mailto:seasir666@gmail.com",
+			url: "mailto:SKOWOSY@126.COM",
 			showName: false,
 		},
 		{
 			name: "RSS",
 			icon: "fa7-solid:rss",
 			url: "/rss/",
-			showName: false,
-		},
-		{
-			name: "cnb",
-			icon: "tdesign:logo-cnb-filled",
-			url: "https://cnb.cool/W3C/Hyde/Firefly-hyde",
-			showName: false,
-		},
-		{
-			name: "Telegram",
-			icon: "fa7-brands:telegram",
-			url: "https://t.me/seasir_Bot",
 			showName: false,
 		},
 	],

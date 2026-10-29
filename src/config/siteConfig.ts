@@ -6,39 +6,32 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "Hyde Blog",
+	title: "SKOWOSYのCODING SPACE",
 
 	// 站点副标题
-	subtitle: "人心中的成见是一座大山",
+	subtitle: "A NORMAL CODING LOVER !",
 
-	// 站点 URL
-	site_url: "https://seasir.top",
+	// 站点 URL（部署后如果换了域名，记得同步修改这里）
+	site_url: "https://zht0711.github.io/Firefly-hyde",
 
 	// 站点描述
 	description:
-		"Hyde 是一个记录折腾博客搭建教程、分享教程、随笔感悟，技术探索与生活记录，都在这里。",
+		"SKOWOSY 的个人博客：代码、学术与生活的碎片记录，学习笔记与技术探索都在这里。",
 
 	// 站点关键词
 	keywords: [
-		"Hyde",
-		"个人博客主题",
+		"SKOWOSY",
+		"个人博客",
 		"Astro",
-		"ACGN",
 		"博客",
 		"技术博客",
-		"静态博客",
-		"现代化博客",
-		"内容创作者",
-		"开源主题",
-		"番组追踪",
+		"学习笔记",
 		"技术分享",
 		"生活点滴",
-		"建站记录",
-		"技术折腾",
-		"个人博客",
 		"日常随笔",
-		"生活相册",
-		"折腾日记",
+		"化学",
+		"物理",
+		"编程",
 	],
 
 	// 主题色
@@ -90,7 +83,7 @@ export const siteConfig: SiteConfig = {
 			alt: "🍀",
 		},
 		// 导航栏标题
-		title: "Hyde",
+		title: "SKOWOSY",
 		// 全宽导航栏，导航栏是否占满屏幕宽度
 		widthFull: true,
 		// 导航菜单对齐方式，left：左对齐，center：居中
@@ -101,8 +94,8 @@ export const siteConfig: SiteConfig = {
 		stickyNavbar: true,
 	},
 
-	// 站点开始日期，用于统计运行天数
-	siteStartDate: "2026-04-27",
+	// 站点开始日期，用于统计运行天数（沿用旧博客的建站日期）
+	siteStartDate: "2026-03-23",
 
 	// 站点时区（IANA 时区字符串），用于格式化bangumi、rss里的构建日期时间等等..
 	// 示例："Asia/Shanghai", "UTC", 如果为空，则按照构建服务器的时区进行时区转换
