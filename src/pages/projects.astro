@@ -6,6 +6,7 @@ import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { Icon } from "astro-icon/components";
 
 import { siteConfig } from "../config";
+import { url } from "@utils/url-utils";
 import { UNCATEGORIZED } from "../constants/constants";
 import { projectsData } from "../data/projects";
 import I18nKey from "../i18n/i18nKey";
@@ -77,7 +78,7 @@ const subtitle = i18n(I18nKey.projectsSubtitle);
 		initIconLoader();
 	</script>
 
-	<script is:inline src="/js/filter-tabs-handler.js"></script>
+	<script is:inline src={url("/js/filter-tabs-handler.js")}></script>
 
 	<div
 		class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32"

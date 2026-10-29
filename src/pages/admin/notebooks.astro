@@ -1,6 +1,7 @@
 ---
 // 笔记管理页面 - 往已有笔记本里写笔记，通过 GitHub Gist 存储
 import { externalNotebooksConfig } from "@/config/externalNotebooksConfig";
+import { url } from "@/utils/url-utils";
 
 // 从配置读取笔记本列表
 const notebookList = Object.keys(externalNotebooksConfig.notebookGists).sort();
@@ -276,7 +277,7 @@ const notebookList = Object.keys(externalNotebooksConfig.notebookGists).sort();
           <h1>笔记管理</h1>
         </div>
         <div class="nav-right">
-          <a href="/admin/" class="back-link">
+          <a href={url("/admin/")} class="back-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
             <span>后台</span>
           </a>
@@ -416,7 +417,7 @@ const notebookList = Object.keys(externalNotebooksConfig.notebookGists).sort();
       localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
     }
     if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
-    function doLogout() { sessionStorage.removeItem("admin_auth"); window.location.href = "/admin/"; }
+    function doLogout() { sessionStorage.removeItem("admin_auth"); window.location.href = "/Firefly-hyde/admin/"; }
     function setStatus(ok, text) {
       $("status-dot").className = "status-dot " + (ok ? "ok" : "err");
       $("status-text").textContent = text;
@@ -739,7 +740,7 @@ const notebookList = Object.keys(externalNotebooksConfig.notebookGists).sort();
 
     // ===== 初始化 =====
     (function() {
-      if (sessionStorage.getItem("admin_auth") !== "1") { window.location.href = "/admin/"; return; }
+      if (sessionStorage.getItem("admin_auth") !== "1") { window.location.href = "/Firefly-hyde/admin/"; return; }
       $("entry-date").value = new Date().toISOString().split("T")[0];
       $("content-input").addEventListener("input", updatePreview);
       if (TOKEN) { $("token-input").value = TOKEN; }

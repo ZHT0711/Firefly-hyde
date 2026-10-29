@@ -5,6 +5,7 @@ import Comment from "@/components/comment/index.astro";
 import MomentCard from "@/components/moments/MomentCard.astro";
 import { externalMomentsConfig } from "@/config/externalMomentsConfig";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { url } from "@/utils/url-utils";
 
 const moments = await getCollection("moments");
 const pinnedMoments = moments
@@ -16,7 +17,7 @@ const pinnedMoments = moments
   <!-- 页面头部 -->
   <div class="pinned-page-header">
     <div class="pinned-header-row">
-      <a href="/moments/" class="back-btn">
+      <a href={url("/moments/")} class="back-btn">
         <Icon name="material-symbols:arrow-back-rounded" class="back-icon" />
         <span>返回说说</span>
       </a>
@@ -44,7 +45,7 @@ const pinnedMoments = moments
         </div>
         <p class="empty-title">还没有置顶任何说说</p>
         <p class="empty-desc">在说说的 frontmatter 中添加 pinned: true 即可置顶</p>
-        <a href="/moments/" class="empty-link">
+        <a href={url("/moments/")} class="empty-link">
           <Icon name="material-symbols:arrow-back-rounded" />
           <span>去看看说说</span>
         </a>

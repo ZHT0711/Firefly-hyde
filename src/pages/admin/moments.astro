@@ -1,6 +1,7 @@
 ---
 // 说说写作页面 - 通过 GitHub Gist 存储，完全免费，不修改仓库代码
 import { externalMomentsConfig } from "@/config/externalMomentsConfig";
+import { url } from "@/utils/url-utils";
 ---
 
 <html lang="zh-CN">
@@ -282,7 +283,7 @@ import { externalMomentsConfig } from "@/config/externalMomentsConfig";
           <h1>写说说</h1>
         </div>
         <div class="nav-right">
-          <a href="/admin/" class="back-link">
+          <a href={url("/admin/")} class="back-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
             <span>后台</span>
           </a>

@@ -88,7 +88,8 @@ export type SiteConfig = {
 		diary: boolean; // 日记页面开关
 		projects: boolean; // 项目页面开关
 		timeline: boolean; // 时间线页面开关
-		skills: boolean; // 技能页面开关	
+		skills: boolean; // 技能页面开关
+		anime: boolean; // 追番页面开关
 	};
 
 	// 日记页面配置
@@ -100,7 +101,6 @@ export type SiteConfig = {
 	momentsCover?: {
 		enable: boolean;
 		image?: string;
-		anime: boolean; // 追番页面开关
 	};
 
 	// 分类导航栏开关

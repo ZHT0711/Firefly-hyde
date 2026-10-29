@@ -1,6 +1,7 @@
 ---
 // 后台管理入口 - 动画角色登录页
 import { externalMomentsConfig } from "@/config/externalMomentsConfig";
+import { url } from "@/utils/url-utils";
 ---
 
 <html lang="zh-CN">
@@ -309,9 +310,9 @@ import { externalMomentsConfig } from "@/config/externalMomentsConfig";
       </div>
 
       <div class="left-footer">
-        <a href="/">首页</a>
-        <a href="/moments/">说说</a>
-        <a href="/life/notebooks/">笔记</a>
+        <a href={url("/")}>首页</a>
+        <a href={url("/moments/")}>说说</a>
+        <a href={url("/life/notebooks/")}>笔记</a>
       </div>
     </div>
 
@@ -328,7 +329,7 @@ import { externalMomentsConfig } from "@/config/externalMomentsConfig";
         </div>
         <button class="login-submit" onclick="doLogin()">进入后台</button>
         <div class="login-error" id="login-error"></div>
-        <a href="/" class="login-back">← 返回首页</a>
+        <a href={url("/")} class="login-back">← 返回首页</a>
       </div>
     </div>
   </div>
@@ -342,7 +343,7 @@ import { externalMomentsConfig } from "@/config/externalMomentsConfig";
           <h1>后台管理</h1>
         </div>
         <div class="nav-right">
-          <a href="/" class="back-link">
+          <a href={url("/")} class="back-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
             <span>首页</span>
           </a>
@@ -356,12 +357,12 @@ import { externalMomentsConfig } from "@/config/externalMomentsConfig";
         <p>选择要管理的功能</p>
       </div>
       <div class="admin-grid">
-        <a href="/admin/moments/" class="admin-card">
+        <a href={url("/admin/moments/")} class="admin-card">
           <div class="admin-card-icon">✍️</div>
           <div class="admin-card-title">说说管理</div>
           <div class="admin-card-desc">发布、编辑、删除说说</div>
         </a>
-        <a href="/admin/notebooks/" class="admin-card">
+        <a href={url("/admin/notebooks/")} class="admin-card">
           <div class="admin-card-icon">📓</div>
           <div class="admin-card-title">笔记管理</div>
           <div class="admin-card-desc">管理笔记本和笔记</div>

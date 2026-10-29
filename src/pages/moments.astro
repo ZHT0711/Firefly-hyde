@@ -7,6 +7,7 @@ import MomentCard from "@/components/moments/MomentCard.astro";
 import MomentsCover from "@/components/moments/MomentsCover.astro";
 import { externalMomentsConfig } from "@/config/externalMomentsConfig";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { url } from "@/utils/url-utils";
 
 const moments = await getCollection("moments");
 const sortedMoments = moments
@@ -76,7 +77,7 @@ const pinnedData = pinnedMoments.map((m) => ({
   <MomentsCover />
 
   <!-- 置顶说说（始终渲染容器，JS 可动态追加外部置顶） -->
-  <a href="/moments/pinned/" class="wx-pinned" id="pinned-block" style={pinnedData.length === 0 ? 'display:none' : ''}>
+  <a href={url("/moments/pinned/")} class="wx-pinned" id="pinned-block" style={pinnedData.length === 0 ? 'display:none' : ''}>
     <div class="wx-pinned-tag">
       <span>置顶</span>
     </div>

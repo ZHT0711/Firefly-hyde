@@ -123,6 +123,8 @@ export const siteConfig: SiteConfig = {
 		timeline: true,
 		// 技能页面开关
 		skills: true,
+		// 追番页面开关（配置好你自己的 Bangumi/Bilibili UID 后再开启）
+		anime: false,
 	},
 	// 日记页面配置
 	diary: {
@@ -136,8 +138,6 @@ export const siteConfig: SiteConfig = {
 		enable: true,
 		image:
 			"https://ph.0824.uk/file/博客横屏封面/1780635498430_mmexport1774845895097.jpg",
-		// 追番页面开关
-		anime: true,
 	},
 
 	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航

@@ -1,5 +1,6 @@
 ---
 import type { Device } from "../../../data/devices";
+import { url } from "@utils/url-utils";
 
 interface Props {
 	device: Device;
@@ -27,7 +28,7 @@ const { device, index, viewDetailsText } = Astro.props;
 			>
 			</div>
 			<img
-				src={device.image}
+				src={url(device.image)}
 				alt={device.name}
 				class="w-auto h-full max-h-full object-contain group-hover:scale-110 transition-all duration-500 drop-shadow-md relative z-10"
 				loading="lazy"

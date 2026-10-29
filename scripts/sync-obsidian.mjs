@@ -30,6 +30,8 @@ const MANIFEST_FILE = path.join(
 	"scripts",
 	".obsidian-sync-manifest.json",
 );
+// 与 astro.config.mjs 的 base 保持一致（GitHub Pages 子路径部署）
+const SITE_BASE = "/Firefly-hyde";
 
 const AUTO_PUSH = process.argv.includes("--push");
 
@@ -177,7 +179,7 @@ function copyImage(srcPath) {
 	const name = `${path.basename(base, ext)}-${stamp}${ext}`;
 	const dest = path.join(IMAGES_DIR, name);
 	if (!fs.existsSync(dest)) fs.copyFileSync(srcPath, dest);
-	return `/blog-images/${name}`;
+	return `${SITE_BASE}/blog-images/${name}`;
 }
 
 /** 处理正文：转换 Obsidian 语法、搬运图片 */

@@ -1,7 +1,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
-import { getCategoryUrl, getPostUrlBySlug } from "@utils/url-utils";
+import { getCategoryUrl, getPostUrlBySlug, url } from "@utils/url-utils";
 import { siteConfig } from "@/config/siteConfig";
 import { getDiaryList } from "@/data/diary";
 import type { UserSubjectCollection } from "@/types/bangumi";
@@ -242,7 +242,7 @@ export async function getArchiveList(): Promise<ArchiveItem[]> {
 			return {
 				id: `moment-${moment.id}`,
 				type: "moment",
-				link: "/moments/",
+				link: url("/moments/"),
 				data: {
 					title: title,
 					published: new Date(moment.data.published),
@@ -284,7 +284,7 @@ export async function getArchiveList(): Promise<ArchiveItem[]> {
 					return {
 						id: `ext-${m.id}`,
 						type: "moment",
-						link: "/moments/",
+						link: url("/moments/"),
 						data: {
 							title: title,
 							published: new Date(m.published),

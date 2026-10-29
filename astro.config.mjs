@@ -56,7 +56,9 @@ const adapter = process.env.CF_WORKERS
 export default defineConfig({
 	site: siteConfig.site_url,
 
-	base: "/",
+	// GitHub Pages 项目站点部署在 /Firefly-hyde/ 子路径下，必须与仓库名一致
+	// 如果以后绑定自定义域名（根路径部署），改回 "/" 即可
+	base: "/Firefly-hyde",
 	trailingSlash: "always",
 
 	// 字体配置 - 只加载实际使用的字体，跳过未引用的以加快构建
