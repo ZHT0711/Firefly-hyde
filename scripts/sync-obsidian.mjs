@@ -15,9 +15,9 @@
  *   5. ![[图片.png]] 嵌入和相对路径图片会自动复制到 public/blog-images/ 并改写链接
  */
 
+import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -25,7 +25,11 @@ const VAULT = "C:\\Users\\skowosy\\iCloudDrive\\iCloud~md~obsidian\\skowosy";
 const SOURCE_DIR = path.join(VAULT, "博客");
 const POSTS_DIR = path.join(ROOT, "src", "content", "posts");
 const IMAGES_DIR = path.join(ROOT, "public", "blog-images");
-const MANIFEST_FILE = path.join(ROOT, "scripts", ".obsidian-sync-manifest.json");
+const MANIFEST_FILE = path.join(
+	ROOT,
+	"scripts",
+	".obsidian-sync-manifest.json",
+);
 
 const AUTO_PUSH = process.argv.includes("--push");
 
@@ -88,16 +92,16 @@ function parseFrontmatter(raw) {
 }
 
 function cleanScalar(s) {
-	s = s.trim();
+	const t = s.trim();
 	if (
-		(s.startsWith('"') && s.endsWith('"') && s.length > 1) ||
-		(s.startsWith("'") && s.endsWith("'") && s.length > 1)
+		(t.startsWith('"') && t.endsWith('"') && t.length > 1) ||
+		(t.startsWith("'") && t.endsWith("'") && t.length > 1)
 	) {
-		return s.slice(1, -1);
+		return t.slice(1, -1);
 	}
-	if (s === "true") return true;
-	if (s === "false") return false;
-	return s;
+	if (t === "true") return true;
+	if (t === "false") return false;
+	return t;
 }
 
 function asList(v) {
@@ -126,7 +130,7 @@ function formatDate(d) {
 }
 
 function toYamlString(s) {
-	if (/[:#\[\]{}"&*?|>%@`]/.test(s) || /\s/.test(s) || s === "") {
+	if (/[:#[\]{}"&*?|>%@`]/.test(s) || /\s/.test(s) || s === "") {
 		return `"${s.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
 	}
 	return s;
@@ -164,7 +168,9 @@ function copyImage(srcPath) {
 	fs.mkdirSync(IMAGES_DIR, { recursive: true });
 	const base = path.basename(srcPath);
 	// 文件名加短哈希，避免不同文件夹同名图片互相覆盖
-	const stamp = Buffer.from(path.relative(VAULT, srcPath).replace(/[\\/]/g, "/"))
+	const stamp = Buffer.from(
+		path.relative(VAULT, srcPath).replace(/[\\/]/g, "/"),
+	)
 		.toString("base64url")
 		.slice(0, 8);
 	const ext = path.extname(base);
@@ -177,9 +183,10 @@ function copyImage(srcPath) {
 /** 处理正文：转换 Obsidian 语法、搬运图片 */
 function processBody(body, noteDir) {
 	const copied = [];
+	let text = body;
 
 	// 1. ![[图片.png]] / ![[图片.png|300]] 嵌入
-	body = body.replace(/!\[\[([^\]|]+?)(?:\|\d+)?\]\]/g, (m, name) => {
+	text = text.replace(/!\[\[([^\]|]+?)(?:\|\d+)?\]\]/g, (m, name) => {
 		const found = findInVault(name.trim());
 		if (!found) {
 			log(`  ⚠ 找不到嵌入图片：${name.trim()}`);
@@ -191,7 +198,7 @@ function processBody(body, noteDir) {
 	});
 
 	// 2. 相对路径图片 ![alt](xxx.png) / ![alt](Pictures/xxx.png)
-	body = body.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, target) => {
+	text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, target) => {
 		const t = target.trim();
 		if (/^(https?:|\/\/|\/|data:|#)/i.test(t)) return m;
 		const local = path.isAbsolute(t) ? t : path.resolve(noteDir, decodeURI(t));
@@ -205,11 +212,12 @@ function processBody(body, noteDir) {
 	});
 
 	// 3. 正文里的 [[笔记]] / [[笔记|别名]] 链接 → 纯文本（博客里没有双链）
-	body = body.replace(/(?<!!)\[\[([^\]|]+?)(?:\|([^\]]+))?\]\]/g, (m, name, alias) =>
-		alias ? alias : name,
+	text = text.replace(
+		/(?<!!)\[\[([^\]|]+?)(?:\|([^\]]+))?\]\]/g,
+		(_m, name, alias) => (alias ? alias : name),
 	);
 
-	return { body, copied };
+	return { body: text, copied };
 }
 
 // ---------------------------------------------------------------------------
@@ -240,7 +248,9 @@ function main() {
 		const { data, body } = parseFrontmatter(raw);
 		const stat = fs.statSync(srcPath);
 
-		const title = String(data.title || data.标题 || path.basename(rel, path.extname(rel)));
+		const title = String(
+			data.title || data.标题 || path.basename(rel, path.extname(rel)),
+		);
 		const publishedDate =
 			toDate(data.published) ||
 			toDate(data.date) ||
@@ -267,7 +277,7 @@ function main() {
 		fm += `tags: [${tags.map(toYamlString).join(", ")}]\n`;
 		if (category) fm += `category: ${toYamlString(category)}\n`;
 		fm += `draft: ${draft}\n`;
-		if (pinned) fm += `pinned: true\n`;
+		if (pinned) fm += "pinned: true\n";
 		if (lang) fm += `lang: ${toYamlString(lang)}\n`;
 
 		const dest = path.join(POSTS_DIR, rel);
@@ -282,10 +292,15 @@ function main() {
 		}
 		fs.mkdirSync(path.dirname(dest), { recursive: true });
 		fs.writeFileSync(dest, content, "utf8");
-		nextManifest.posts[rel] = { dest: path.relative(ROOT, dest), images: copied };
+		nextManifest.posts[rel] = {
+			dest: path.relative(ROOT, dest),
+			images: copied,
+		};
 		if (destExists) updated++;
 		else added++;
-		log(`${destExists ? "更新" : "新增"}：${rel}${draft ? "（草稿，不会发布）" : ""}`);
+		log(
+			`${destExists ? "更新" : "新增"}：${rel}${draft ? "（草稿，不会发布）" : ""}`,
+		);
 	}
 
 	// 删除 Obsidian 里已经不存在的文章
@@ -301,8 +316,14 @@ function main() {
 		}
 	}
 
-	fs.writeFileSync(MANIFEST_FILE, JSON.stringify(nextManifest, null, 2), "utf8");
-	log(`完成：新增 ${added}，更新 ${updated}，未变化 ${unchanged}，删除 ${deleted}`);
+	fs.writeFileSync(
+		MANIFEST_FILE,
+		JSON.stringify(nextManifest, null, 2),
+		"utf8",
+	);
+	log(
+		`完成：新增 ${added}，更新 ${updated}，未变化 ${unchanged}，删除 ${deleted}`,
+	);
 
 	if (AUTO_PUSH) {
 		pushChanges();
@@ -341,7 +362,9 @@ function pushChanges() {
 	}
 	const push = git(["push", "origin", "main"]);
 	if (push.status !== 0) {
-		log(`⚠ git push 失败（文章已提交到本地）：${(push.stderr + push.stdout).trim()}`);
+		log(
+			`⚠ git push 失败（文章已提交到本地）：${(push.stderr + push.stdout).trim()}`,
+		);
 		return;
 	}
 	log("✅ 已推送到 GitHub，线上会自动重新部署");
