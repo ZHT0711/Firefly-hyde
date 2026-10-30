@@ -4,18 +4,21 @@
 
 export const externalMomentsConfig = {
 	// 是否启用外部说说数据源
-	enable: true,
+	// 已关闭：下面是主题作者 Hyde 的 Gist，里面是他的说说
+	// 如果你想用这个功能：在 https://gist.github.com 创建自己的 Secret Gist
+	// （文件名 moments.json，内容 []），把 Gist ID 填到下面并改回 true
+	enable: false,
 
 	// GitHub Gist ID（创建 Gist 后从 URL 中获取）
-	gistId: "ee329e8726b8d77b68f23c602ae76f8c",
+	gistId: "",
 
 	// Gist 中的文件名
 	fileName: "moments.json",
 
 	// 默认作者信息
-	defaultAuthor: "Hyde",
+	defaultAuthor: "SKOWOSY",
 	defaultAvatar:
-		"https://i.postimg.cc/7YLVJqnp/wei-xin-tu-pian-2026-05-07-020150-883.jpg",
+		"https://bu.dusays.com/2026/03/24/69c1e38ac1846.jpg",
 
 	// 后台登录密码的 SHA-256 哈希（明文密码不再存入代码）
 	// 生成方式：echo -n "你的密码" | hyde189755

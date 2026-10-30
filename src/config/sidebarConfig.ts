@@ -110,9 +110,10 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 		},
 		{
 			// 组件类型：Umami 统计组件
+			// 已关闭：原来是主题作者 Hyde 的统计面板，配置你自己的 Umami 后再开启
 			type: "umamiStats",
 			// 是否启用该组件
-			enable: true,
+			enable: false,
 			// 组件位置
 			position: "sticky",
 			// 是否在文章详情页显示

@@ -4,19 +4,13 @@
 
 export const externalNotebooksConfig = {
 	// 是否启用外部笔记数据源
-	enable: true,
+	// 已关闭：下面是主题作者 Hyde 的 Gist，里面是他的私人笔记
+	// 如果你想用这个功能：在 https://gist.github.com 创建自己的 Secret Gist
+	// （文件名 notebooks-entries.json，内容 []），把 Gist ID 填到下面并改回 true
+	enable: false,
 
 	// 每个笔记本对应的 Gist ID
-	// 在 https://gist.github.com 创建 Secret Gist，文件名 notebooks-entries.json，内容 []
-	// 创建后把 Gist ID 填在对应笔记本名后面
-	notebookGists: {
-		每日总结: "85e22c520b3ea86d80d0a2f7f5154a67",
-		日记本: "04da78da60cd6363041605ee65f56bdb",
-		日常随笔: "a3707e728f5797612a0b8a9560035686",
-		喜马拉雅: "f189e7928f9d5e98700eb17c0b5853fa",
-		我和宝宝的日常: "5cabb89043f03efa0099f828505fd9ea",
-		记录100件事: "05da9de9c20e47f14849a4937b715d65",
-	} as Record<string, string>,
+	notebookGists: {} as Record<string, string>,
 
 	// 笔记模板（Admin 页面快速选择）
 	// {name} 会被替换为今天的日期，如 2026-06-11

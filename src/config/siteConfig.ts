@@ -106,11 +106,13 @@ export const siteConfig: SiteConfig = {
 		// 友链页面开关
 		friends: true,
 		// 打赏页面开关
-		sponsor: true,
+		// 已关闭：原来是主题作者的收款码，配置你自己的收款码后再开启
+		sponsor: false,
 		// 留言板页面开关，需要配置评论系统
 		guestbook: true,
 		// 番组计划页面开关，含追番、游戏、书籍和音乐
-		bangumi: true,
+		// 已关闭：原配置是主题作者的 Bangumi UID，配置你自己的 UID 后再开启
+		bangumi: false,
 		// 相册页面开关
 		gallery: true,
 		// 设备页面开关

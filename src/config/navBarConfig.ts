@@ -104,13 +104,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 技能
 			LinkPresets.Skills,
-
-			{
-				name: "统计",
-				url: "https://umami.seasir.top/share/cp5SqrNUOxbulLZt/seasir.top",
-				external: true,
-				icon: "fa7-solid:chart-simple",
-			},
 		],
 	});
 
@@ -123,34 +116,10 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		children: [
 			{
 				name: "GitHub",
-				url: "https://github.com/Seasir-Hyde/Firefly-hyde",
+				url: "https://github.com/ZHT0711",
 				external: true,
 				icon: "fa7-brands:github",
 			},
-			{
-				name: "Gitee",
-				url: "https://gitee.com/SeasirHyde",
-				external: true,
-				icon: "fa7-brands:gitee",
-			},
-			{
-				name: "CNB",
-				url: "https://cnb.cool/W3C/Hyde/Firefly-hyde",
-				external: true,
-				icon: "tdesign:logo-cnb-filled",
-			},
-			{
-				name: "个人主页",
-				url: "https://home.seasir.top/",
-				external: true,
-				icon: "material-symbols:page-footer-outline",
-			},
-			// {
-			// 	name: "QQ交流群",
-			// 	url: "https://qq.com",
-			// 	external: true,
-			// 	icon: "fa7-brands:qq",
-			// },
 		],
 	});
 

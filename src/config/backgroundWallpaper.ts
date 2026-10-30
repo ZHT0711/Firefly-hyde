@@ -82,11 +82,11 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否允许用户通过控制面板切换横幅标题显示
 			switchable: true,
 			// 主页横幅主标题
-			title: "Hyde Blog 🎉",
+			title: "SKOWOSYのCODING SPACE 🎉",
 			// 主页横幅主标题字体大小
 			titleSize: "3.8rem",
 			// 主页横幅副标题
-			subtitle: ["欲买桂花同载酒，终不似，少年游！", "花有重开日，人无再少年"],
+			subtitle: ["A NORMAL CODING LOVER !", "代码、学术与生活的碎片记录"],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
 			typewriter: {

@@ -2,11 +2,13 @@ import type { CommentConfig } from "../types/commentConfig";
 
 export const commentConfig: CommentConfig = {
 	// 评论系统类型: none, twikoo, waline, giscus, disqus, artalk，默认为none，即不启用评论系统
-	type: "twikoo",
+	// 已关闭：原配置连的是主题作者的 Twikoo 服务器。想开评论的话，自己部署一个
+	// Twikoo（https://twikoo.js.org）或用 giscus（基于 GitHub Discussions，最简单），填好配置再把 type 改回来
+	type: "none",
 
 	//twikoo评论系统配置
 	twikoo: {
-		envId: "https://twikoo.seasir.top/",
+		envId: "",
 		// 设置 Twikoo 评论系统语言
 		lang: "zh-CN",
 		// 是否启用文章访问量统计功能
