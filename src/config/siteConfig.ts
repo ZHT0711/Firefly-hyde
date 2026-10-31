@@ -258,8 +258,6 @@ export const siteConfig: SiteConfig = {
 	// 音乐配置
 	music: {
 		// 歌单配置（网易云歌单链接里 id= 后面的数字；在网易云里往歌单加歌，这里会自动跟着变）
-		playlists: [
-			{ id: "6605846467", name: "我喜欢的音乐", server: "netease" },
-		],
+		playlists: [{ id: "6605846467", name: "我喜欢的音乐", server: "netease" }],
 	},
 };
