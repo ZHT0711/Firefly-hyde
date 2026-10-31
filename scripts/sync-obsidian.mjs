@@ -258,10 +258,16 @@ function main() {
 			toDate(data.date) ||
 			toDate(data.日期) ||
 			toDate(data.发布时间) ||
+			toDate(data.created) ||
+			toDate(data.创建日期) ||
 			stat.birthtime;
 		const updatedDate = toDate(data.updated) || toDate(data.更新时间);
 		const tags = asList(data.tags || data.标签);
-		const category = String(data.category || data.分类 || "");
+		// 没写分类时，用第一层子文件夹名作为分类（根目录的文件没有分类）
+		const firstFolder = rel.split(/[\\/]/)[0];
+		const category = String(
+			data.category || data.分类 || (firstFolder !== rel ? firstFolder : ""),
+		);
 		const description = String(data.description || data.摘要 || "");
 		const image = String(data.image || data.cover || data.封面 || "");
 		const draft = asBool(data.draft ?? data.草稿);
