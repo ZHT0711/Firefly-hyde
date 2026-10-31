@@ -61,7 +61,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		children: [
 			// 番组计划
 			LinkPresets.Bangumi,
-			
+
 			// 友链
 			LinkPresets.Friends,
 

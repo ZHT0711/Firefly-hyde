@@ -455,7 +455,6 @@ export const ja: Translation = {
 	[Key.skillsDistribution]: "スキル分布",
 	[Key.skillsByLevel]: "レベル別",
 	[Key.skillsByCategory]: "カテゴリー別",
-	[Key.noData]: "データなし",
 
 	// タイムラインページ
 	[Key.timeline]: "タイムライン",

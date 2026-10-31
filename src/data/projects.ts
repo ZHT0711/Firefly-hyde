@@ -34,7 +34,7 @@ export const projectsData: Project[] = [
 		featured: true,
 		tags: ["Gromacs", "计算化学"],
 		showImage: false,
-	}
+	},
 ];
 
 export const getProjectStats = () => {

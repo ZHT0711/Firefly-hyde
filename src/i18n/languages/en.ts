@@ -456,7 +456,6 @@ export const en: Translation = {
 	[Key.skillsDistribution]: "Skill Distribution",
 	[Key.skillsByLevel]: "By Level",
 	[Key.skillsByCategory]: "By Category",
-	[Key.noData]: "No data",
 
 	// Timeline Page
 	[Key.timeline]: "Timeline",

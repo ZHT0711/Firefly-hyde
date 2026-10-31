@@ -459,7 +459,6 @@ export const ru: Translation = {
 	[Key.skillsDistribution]: "Распределение навыков",
 	[Key.skillsByLevel]: "По уровню",
 	[Key.skillsByCategory]: "По категориям",
-	[Key.noData]: "Нет данных",
 
 	// Страница временной шкалы
 	[Key.timeline]: "Временная шкала",
