@@ -2,7 +2,7 @@
 title: lua笔记
 published: 2026-10-31
 description: ""
-tags: []
+tags: [RIME, Lua]
 category: "RIME 学习笔记"
 draft: false
 ---

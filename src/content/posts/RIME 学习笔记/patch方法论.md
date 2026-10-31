@@ -2,7 +2,7 @@
 title: patch方法论
 published: 2026-10-31
 description: ""
-tags: []
+tags: [RIME]
 category: "RIME 学习笔记"
 draft: false
 ---

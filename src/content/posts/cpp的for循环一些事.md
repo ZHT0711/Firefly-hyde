@@ -2,7 +2,7 @@
 title: cpp的for循环一些事
 published: 2026-10-31
 description: ""
-tags: []
+tags: [C++, 编程]
 draft: false
 ---
 
