@@ -17,7 +17,7 @@ export const externalMomentsConfig = {
 
 	// 默认作者信息
 	defaultAuthor: "SKOWOSY",
-	defaultAvatar: "https://bu.dusays.com/2026/03/24/69c1e38ac1846.jpg",
+	defaultAvatar: "/Firefly-hyde/assets/images/avatar.png",
 
 	// 后台登录密码的 SHA-256 哈希（明文密码不再存入代码）
 	// 生成方式：echo -n "你的密码" | hyde189755

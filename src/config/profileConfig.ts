@@ -1,8 +1,8 @@
 import type { ProfileConfig } from "../types/profileConfig";
 
 export const profileConfig: ProfileConfig = {
-	// 头像（沿用旧博客的头像图床链接）
-	avatar: "https://bu.dusays.com/2026/03/24/69c1e38ac1846.jpg",
+	// 头像（public 目录，ImageWrapper 会自动加 /Firefly-hyde 前缀；换自定义域名时不用改）
+	avatar: "/assets/images/avatar.png",
 
 	// 名字
 	name: "SKOWOSY",
